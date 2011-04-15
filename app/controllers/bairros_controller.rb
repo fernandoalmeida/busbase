@@ -13,12 +13,19 @@ class BairrosController < ApplicationController
   # GET /bairros/1
   # GET /bairros/1.xml
   def show
-    @bairro = Bairro.find(params[:id])
+  	@bairro = params[:id].to_i > 0 ? @bairro = Bairro.find(params[:id]) : @bairro = Bairro.where(:nome => params[:id]).first
+		@doc 		= Nokogiri::HTML(open("http://www.stp.salvador.ba.gov.br/transporte/categorias/Onibus/consultar_linha.php?linha=#{params[:id]}"))
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @bairro }
-    end
+		if @bairro
+		  respond_to do |format|
+		    format.html # show.html.erb
+		    format.xml  { render :xml => @bairro }
+		  end
+		else
+			@bairro = Bairro.new
+			flash[:notice] = "Bairro não encontrado"
+			redirect_to :action => :index
+		end
   end
 
   # GET /bairros/new

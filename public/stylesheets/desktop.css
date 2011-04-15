@@ -1,3 +1,21 @@
+/* Links */
+body a, body a:visited {
+	color: #95bf84;
+	text-decoration: none;
+	outline: none;
+	margin: .4em;
+	padding: .1em .2em;
+}
+
+body a img { border: 0 none; }
+
+body a:hover {
+	color: #fff;
+	background-color: #95bf84;
+	text-decoration: underline;
+}
+
+/* Forms */
 label {
 	display: inline-block;
 	width: 10em;
@@ -17,6 +35,7 @@ div.input {
 	padding: .2em;
 }
 
+/* Tables */
 table {
     border-spacing: 0;
     border-left: 1px solid #959595;
@@ -48,18 +67,21 @@ td {
 	color: #484848;
 }
 
-body a, body a:visited {
-	color: #95bf84;
-	text-decoration: none;
-	outline: none;
-	margin: .4em;
-	padding: .1em .2em;
+/* Messages */
+.message {
+	margin: 0 10px 20px 0;
 }
 
-body a img { border: 0 none; }
+.message p {
+	padding: 10px 10px 10px 40px;
+}
 
-body a:hover {
-	color: #fff;
-	background-color: #95bf84;
-	text-decoration: underline;
+.error {
+	background: #FBE3E4 url(../images/highlight_line.gif) repeat-x scroll 0 0;
+	border-color: 1px solid #FBC7C9;
+	color: #D64045;
+}
+
+.error p {
+	background: transparent url(../images/24_x_false.png) no-repeat scroll 15px 17px;
 }
