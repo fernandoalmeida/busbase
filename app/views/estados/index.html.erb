@@ -1,0 +1,25 @@
+<h1>Lista de estados</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Uf</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estados.each do |estado| %>
+  <tr>
+    <td><%= estado.nome %></td>
+    <td><%= estado.uf %></td>
+    <td><%= link_to 'Mostrar', estado %></td>
+    <td><%= link_to 'Editar', edit_estado_path(estado) %></td>
+    <td><%= link_to 'Excluir', estado, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo Estado', new_estado_path %>

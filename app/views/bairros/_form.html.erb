@@ -1,0 +1,7 @@
+<%= simple_form_for(@bairro) do |f| %>
+  <%= f.input :nome %>
+  <%= f.association :cidade, :label_method => :nome %>
+  <div class="actions">
+    <%= f.button :submit, "Gravar" %>
+  </div>
+<% end %>

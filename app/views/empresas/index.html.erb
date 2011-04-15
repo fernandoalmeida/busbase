@@ -1,0 +1,23 @@
+<h1>Lista de empresas</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @empresas.each do |empresa| %>
+  <tr>
+    <td><%= empresa.nome %></td>
+    <td><%= link_to 'Mostrar', empresa %></td>
+    <td><%= link_to 'Editar', edit_empresa_path(empresa) %></td>
+    <td><%= link_to 'Excluir', empresa, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Empresa', new_empresa_path %>

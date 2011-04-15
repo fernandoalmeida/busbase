@@ -1,0 +1,31 @@
+<h1>Listing linhas</h1>
+
+<table>
+  <tr>
+    <th>Codigo</th>
+    <th>Nome</th>
+    <th>Empresa</th>
+    <th>Bairro partida</th>
+    <th>Bairro chegada</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @linhas.each do |linha| %>
+  <tr>
+    <td><%= linha.codigo %></td>
+    <td><%= linha.nome %></td>
+    <td><%= linha.empresa.nome %></td>
+    <td><%= linha.bairro_partida.nome %></td>
+    <td><%= linha.bairro_chegada.nome %></td>
+    <td><%= link_to 'Mostrat', linha %></td>
+    <td><%= link_to 'Editar', edit_linha_path(linha) %></td>
+    <td><%= link_to 'Excluir', linha, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Linha', new_linha_path %>

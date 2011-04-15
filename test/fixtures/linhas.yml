@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  codigo: MyString
+  nome: MyString
+  empresa: 
+  bairro_partida: 
+  bairro_chegada: 
+
+two:
+  codigo: MyString
+  nome: MyString
+  empresa: 
+  bairro_partida: 
+  bairro_chegada: 

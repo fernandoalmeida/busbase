@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @bairro.nome %>
+</p>
+
+<p>
+  <b>Cidade:</b>
+  <%= @bairro.cidade %>
+</p>
+
+
+<%= link_to 'Editar', edit_bairro_path(@bairro) %> |
+<%= link_to 'Voltar', bairros_path %>

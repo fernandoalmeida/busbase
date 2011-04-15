@@ -1,0 +1,65 @@
+label {
+	display: inline-block;
+	width: 10em;
+	text-align: right;
+	padding-right: 5px;
+}
+
+div.input {
+	margin-bottom: .3em;
+}
+
+.input input,
+.input select
+{
+	width: 15em;
+	border: 1px solid #ccc;
+	padding: .2em;
+}
+
+table {
+    border-spacing: 0;
+    border-left: 1px solid #959595;
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		font-size: 1.1em;
+		clear:both;
+}
+
+th {
+	border-color:#959595 #959595 #959595 #FFFFFF;
+	border-style:solid;
+	border-width:1px;
+	color:#fff;
+	letter-spacing:0px;
+	padding:6px 4px 2px 4px;
+	text-align:left;
+	text-transform:uppercase;
+	white-space: nowrap;
+	background-color: #95bf84;
+}
+
+td {
+	border-right: 1px solid #959595;
+	border-bottom: 1px solid #959595;
+	background: #fff;
+	padding: 1px 4px;
+	color: #484848;
+}
+
+body a, body a:visited {
+	color: #95bf84;
+	text-decoration: none;
+	outline: none;
+	margin: .4em;
+	padding: .1em .2em;
+}
+
+body a img { border: 0 none; }
+
+body a:hover {
+	color: #fff;
+	background-color: #95bf84;
+	text-decoration: underline;
+}

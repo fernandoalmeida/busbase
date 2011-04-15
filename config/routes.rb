@@ -1,4 +1,14 @@
 ParadaDeOnibusWeb::Application.routes.draw do
+  resources :linhas
+
+  resources :empresas
+
+  resources :bairros
+
+  resources :cidades
+
+  resources :estados
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +58,7 @@ ParadaDeOnibusWeb::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "linhas#index"
 
   # See how all your routes lay out with "rake routes"
 

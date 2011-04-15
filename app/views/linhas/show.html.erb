@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Codigo:</b>
+  <%= @linha.codigo %>
+</p>
+
+<p>
+  <b>Nome:</b>
+  <%= @linha.nome %>
+</p>
+
+<p>
+  <b>Empresa:</b>
+  <%= @linha.empresa %>
+</p>
+
+<p>
+  <b>Bairro partida:</b>
+  <%= @linha.bairro_partida %>
+</p>
+
+<p>
+  <b>Bairro chegada:</b>
+  <%= @linha.bairro_chegada %>
+</p>
+
+
+<%= link_to 'Editar', edit_linha_path(@linha) %> |
+<%= link_to 'Voltar', linhas_path %>

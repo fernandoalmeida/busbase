@@ -1,0 +1,10 @@
+<%= simple_form_for(@linha) do |f| %>
+  <%= f.input :codigo %>
+  <%= f.input :nome %>
+  <%= f.association :empresa, :label_method => :nome %>
+  <%= f.association :bairro_partida, :label_method => :nome %>
+  <%= f.association :bairro_chegada, :label_method => :nome %>
+  <div class="actions">
+    <%= f.button :submit, "Gravar" %>
+  </div>
+<% end %>
