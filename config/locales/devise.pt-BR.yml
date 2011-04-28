@@ -4,6 +4,7 @@ pt-BR:
       not_found: "não encontrado"
       already_confirmed: "já foi confirmado"
       not_locked: "não foi bloqueado"
+      not_saved: "erro no cadastro"
 
   devise:
     failure:

@@ -1,0 +1,41 @@
+<h1>Parada de ônibus</h1>
+<div class="block" id="block-login">
+	<h2>Login</h2>
+	<div class="content login">
+		<div class="flash">
+			<% flash.each do |type, message| %>
+	      <%= "<div class=\"message #{type}\"><p>#{message}</p></div>".html_safe %>
+      <% end %>
+		</div>
+		<div class="form login">
+		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+			<div class="group wat-cf">
+				<div class="left"><%= f.label :email, :class => "label right" %></div>
+				<div class="right"><%= f.email_field :email, :class => "text_field" %></div>
+			</div>
+
+			<div class="group wat-cf">
+				<div class="left"><%= f.label :password, :class => "label right" %></div>
+				<div class="right"><%= f.password_field :password, :class => "text_field" %></div>
+			</div>
+
+			<% if devise_mapping.rememberable? -%>
+			<div class="group wat-cf">
+				<div class="left"><%= f.label :lembrar, :class => "label right" %></div>
+				<div class="right"><%= f.check_box :remember_me, :class => "checkbox" %></div>
+			</div>
+			<% end -%>
+
+			<div class="group navform wat-cf">
+				<div class="right">
+					<button type="submit" class="button">
+						<%= image_tag("web-app-theme/icons/key.png") %> Enviar
+					</button>
+				</div>
+			</div>
+
+		<% end %>
+		</div>
+		<%= render :partial => "devise/shared/links" %>
+	</div>
+</div>
