@@ -94,7 +94,6 @@ GEM
     tzinfo (0.3.24)
     warden (1.0.3)
       rack (>= 1.0.0)
-    web-app-theme (0.6.3)
 
 PLATFORMS
   ruby
@@ -107,4 +106,3 @@ DEPENDENCIES
   rails_admin!
   simple_form
   sqlite3
-  web-app-theme

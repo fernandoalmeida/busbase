@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<% if @bairro %>
 <p>
   <b>Nome:</b>
   <%= @bairro.nome %>
@@ -9,7 +10,9 @@
   <b>Cidade:</b>
   <%= @bairro.cidade.nome if @bairro.cidade %>
 </p>
+<% end %>
 
+<% if @doc %>
 <table>
 	<thead>
 		<tr>
@@ -26,3 +29,4 @@
 <% end %>
 	<tbody>
 </table>
+<% end %>
