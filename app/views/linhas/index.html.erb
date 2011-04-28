@@ -1,31 +1,48 @@
-<h1>Listing linhas</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Lista")}", linhas_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Nova")}", new_linha_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "Todas as")  %> Linhas</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.linha.codigo", :default => t("activerecord.labels.codigo", :default => "Codigo")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @linhas.each do |linha| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= linha.id %>
+          </td>
+                    <td>
+            <%= link_to linha.codigo, linha_path(linha) %>
+          </td>
+                    <td>
+            <%= linha.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", linha_path(linha) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_linha_path(linha) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", linha_path(linha), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Codigo</th>
-    <th>Nome</th>
-    <th>Empresa</th>
-    <th>Bairro partida</th>
-    <th>Bairro chegada</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @linhas.each do |linha| %>
-  <tr>
-    <td><%= linha.codigo %></td>
-    <td><%= linha.nome %></td>
-    <td><%= linha.empresa.nome %></td>
-    <td><%= linha.bairro_partida.nome %></td>
-    <td><%= linha.bairro_chegada.nome %></td>
-    <td><%= link_to 'Mostrat', linha %></td>
-    <td><%= link_to 'Editar', edit_linha_path(linha) %></td>
-    <td><%= link_to 'Excluir', linha, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Linha', new_linha_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

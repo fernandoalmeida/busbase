@@ -1,5 +1,11 @@
 ParadaDeOnibusWeb::Application.routes.draw do
+
   devise_for :users
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+  end
 
   resources :linhas
 
@@ -60,8 +66,7 @@ ParadaDeOnibusWeb::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-	root :to => "rails_admin::Main#index"
-  #root :to => "linhas#index"
+  root :to => "linhas#index"
 
   # See how all your routes lay out with "rake routes"
 

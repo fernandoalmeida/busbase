@@ -45,6 +45,9 @@ module ParadaDeOnibusWeb
     config.to_prepare do
 			Devise::SessionsController.layout "sign"
 			Devise::RegistrationsController.layout "sign"
+			Devise::ConfirmationsController.layout "sign"
+			Devise::PasswordsController.layout "sign"
+			Devise::UnlocksController.layout "sign"
 		end
 		
   end

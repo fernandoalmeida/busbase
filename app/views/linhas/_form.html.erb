@@ -1,10 +1,38 @@
-<%= simple_form_for(@linha) do |f| %>
-  <%= f.input :codigo %>
-  <%= f.input :nome %>
-  <%= f.association :empresa, :label_method => :nome %>
-  <%= f.association :bairro_partida, :label_method => :nome %>
-  <%= f.association :bairro_chegada, :label_method => :nome %>
-  <div class="actions">
-    <%= f.button :submit, "Gravar" %>
+
+  <div class="group">
+    <%= f.label :codigo, t("activerecord.attributes.linha.codigo", :default => "Codigo"), :class => :label %>
+    <%= f.text_field :codigo, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
   </div>
-<% end %>
+
+  <div class="group">
+    <%= f.label :nome, t("activerecord.attributes.linha.nome", :default => "Nome"), :class => :label %>
+    <%= f.text_field :nome, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :empresa_id, t("activerecord.attributes.linha.empresa_id", :default => "Empresa"), :class => :label %>
+    <%= f.text_field :empresa_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :bairro_partida_id, t("activerecord.attributes.linha.bairro_partida_id", :default => "Bairro partida"), :class => :label %>
+    <%= f.text_field :bairro_partida_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :bairro_chegada_id, t("activerecord.attributes.linha.bairro_chegada_id", :default => "Bairro chegada"), :class => :label %>
+    <%= f.text_field :bairro_chegada_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+	<%= link_to t("web-app-theme.cancel", :default => "Cancel"), linhas_path, :class => "text_button_padding link_button" %>
+</div>
