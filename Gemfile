@@ -5,3 +5,5 @@ gem 'sqlite3'
 gem "simple_form"
 gem 'nokogiri'
 gem "heroku"
+gem "devise"
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
