@@ -1,8 +1,13 @@
-<%= simple_form_for(@cidade) do |f| %>
-  <%= f.input :nome %>
-  <%= f.association :estado, :label_method => :nome %>
+<%= simple_form_for(@cidade, :html => { :class => :form }) do |f| %>
+  <div class="fields">
+    <%= f.input :nome, :wrapper_html => { :class => "group" } %>
+    <%= f.association :estado, :label_method => :nome, :wrapper_html => { :class => "group" } %>
   </div>
-  <div class="actions">
-    <%= f.button :submit, "Gravar" %>
+	<div class="group navform wat-cf">
+		<button class="button" type="submit">
+		  <%= image_tag("web-app-theme/icons/tick.png", :alt => t("web-app-theme.save", :default => "Save")) %> <%= t("web-app-theme.save", :default => "Save") %>
+		</button>
+		<span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+		<%= link_to t("web-app-theme.cancel", :default => "Cancel"), cidades_path, :class => "text_button_padding link_button" %>
   </div>
 <% end %>

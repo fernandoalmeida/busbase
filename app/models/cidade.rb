@@ -4,6 +4,6 @@ class Cidade < ActiveRecord::Base
 	has_many 	 :bairros
 	
 	validates :nome, 			:presence => true
-	validates :estado_id, 	:presence => true
+	validates :estado_id,	:presence => true
 
 end

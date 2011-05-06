@@ -1,15 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", estados_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_estado_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", estado_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.estado.nome", :default => t("activerecord.labels.nome", :default => "Nome")) %>:</b>
+          <%= @estado.nome %>
+        </p>
 
-<p>
-  <b>Nome:</b>
-  <%= @estado.nome %>
-</p>
+        <p>
+          <b><%= t("activerecord.attributes.estado.uf", :default => t("activerecord.labels.uf", :default => "Uf")) %>:</b>
+          <%= @estado.uf %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_estado_path(@estado), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), estado_path(@estado), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
 
-<p>
-  <b>Uf:</b>
-  <%= @estado.uf %>
-</p>
-
-
-<%= link_to 'Editar', edit_estado_path(@estado) %> |
-<%= link_to 'Voltar', estados_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

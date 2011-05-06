@@ -1,7 +1,7 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Lista")}", linhas_path  %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", linhas_path  %></li>
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_linha_path %></li>
     </ul>
   </div>          
@@ -11,23 +11,17 @@
       <table class="table">
         <tr>             
           <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.linha.codigo", :default => t("activerecord.labels.codigo", :default => "Codigo")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th><%= t("activerecord.attributes.linha.numero", :default => t("activerecord.labels.numero", :default => "Numero")) %></th>
+          <th><%= t("activerecord.attributes.linha.nome", :default => t("activerecord.labels.numero", :default => "Nome")) %></th>
+          <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @linhas.each do |linha| -%>
         <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= linha.id %>
-          </td>
-                    <td>
-            <%= link_to linha.codigo, linha_path(linha) %>
-          </td>
-                    <td>
-            <%= linha.created_at %>
-          </td>
+          <td><%= linha.id %></td>
+          <td><%= link_to linha.numero, linha_path(linha) %></td>
+          <td><%= link_to linha.nome, linha_path(linha) %></td>
+          <td><%= l(linha.created_at) %></td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", linha_path(linha) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_linha_path(linha) %> |

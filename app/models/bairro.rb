@@ -4,7 +4,7 @@ class Bairro < ActiveRecord::Base
 	has_many 	 :linhas_partida, :class_name => "Linha", :foreign_key => 'bairro_partida_id'
 	has_many 	 :linhas_chegada, :class_name => "Linha", :foreign_key => 'bairro_chegada_id'
 
-	validates :nome, 		 :presence => true
+	validates :nome, 		 :presence => true, :uniqueness => { :scope => [:cidade_id] }
 	validates :cidade_id, :presence => true
 
 end

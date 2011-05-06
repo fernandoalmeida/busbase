@@ -10,8 +10,8 @@
     <div class="inner">
       
         <p>
-          <b><%= t("activerecord.attributes.linha.codigo", :default => t("activerecord.labels.codigo", :default => "Codigo")) %>:</b>
-          <%= @linha.codigo %>
+          <b><%= t("activerecord.attributes.linha.numero", :default => t("activerecord.labels.numero", :default => "Numero")) %>:</b>
+          <%= @linha.numero %>
         </p>
 
         <p>
@@ -21,17 +21,17 @@
 
         <p>
           <b><%= t("activerecord.attributes.linha.empresa_id", :default => t("activerecord.labels.empresa_id", :default => "Empresa")) %>:</b>
-          <%= @linha.empresa_id %>
+          <%= @linha.empresa.nome %>
         </p>
 
         <p>
           <b><%= t("activerecord.attributes.linha.bairro_partida_id", :default => t("activerecord.labels.bairro_partida_id", :default => "Bairro partida")) %>:</b>
-          <%= @linha.bairro_partida_id %>
+          <%= @linha.bairro_partida.nome %>
         </p>
 
         <p>
           <b><%= t("activerecord.attributes.linha.bairro_chegada_id", :default => t("activerecord.labels.bairro_chegada_id", :default => "Bairro chegada")) %>:</b>
-          <%= @linha.bairro_chegada_id %>
+          <%= @linha.bairro_chegada.nome %>
         </p>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_linha_path(@linha), :class => "button" %> 

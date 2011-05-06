@@ -258,7 +258,12 @@ input.checkbox {
   float: right;
 }
 
-.form label.label, .form input.text_field, .form textarea.text_area {
+.form label,
+.form input.text_field,
+.form textarea.text_area,
+.form .input input,
+.form .input textarea
+{
   font-size: 1.2em;
   padding: 1px 0;
   margin: 0;
@@ -276,21 +281,22 @@ input.checkbox {
   line-height: 1.5em;
 }
 
-.form label.label {
+.form label {
   display: block;
   padding-bottom: 2px;  
   font-weight: bold;
 }
 
-.form div.fieldWithErrors label.label {
-  display: inline;
-}
-
-.form .fieldWithErrors .error {
+.form .field_with_errors .error {
   color: red;
+  margin-left: 5px;
 }
 
-.form input.text_field, .form textarea.text_area {
+.form input.text_field,
+.form textarea.text_area,
+.form .input input,
+.form .input textarea
+{
   width: 100%;
   border-width: 1px;
   border-style: solid;
@@ -351,7 +357,7 @@ ul.list li .item .avatar {
 
 /*  Inspired by http://particletree.com/features/rediscovering-the-button-element */
 
-a.button:link, a.button:visited, a.button:hover, a.button:active, button.button {
+a.button:link, a.button:visited, a.button:hover, a.button:active, button.button, input.button {
   color: #222;
   display:block;
   float:left;
@@ -366,21 +372,28 @@ a.button:link, a.button:visited, a.button:hover, a.button:active, button.button 
   text-decoration: none;
 }
 
-button.button {
+button.button,
+input.button
+{
   width:auto;
   overflow:visible;
   padding:4px 10px 3px 7px; /* IE6 */
 }
-button.button[type] {
+button.button[type],
+input.button[type] {
   padding:5px 10px 5px 7px; /* Firefox */
   line-height:17px; /* Safari */
 }
 
-*:first-child+html button.button[type] {
+*:first-child+html button.button[type],
+*:first-child+html input.button[type] {
   padding:4px 10px 3px 7px; /* IE7 */
 }
 
-button.button img, a.button img {
+button.button img,
+input.button img,
+a.button img
+{
   margin:0 3px -3px 0 !important;
   padding:0;
   border:none;
@@ -388,11 +401,17 @@ button.button img, a.button img {
   height:16px;
 }
 
-button.button:hover, a.button:hover {
+button.button:hover,
+input.button:hover,
+a.button:hover
+{
   background-color:#dedede;
 }
 
-button.button:active, a.button:active {
+button.button:active,
+input.button:active,
+a.button:active
+{
   background-color:#e5e5e5;
 }
 .text_button_padding{

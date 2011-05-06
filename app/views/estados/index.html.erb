@@ -1,25 +1,48 @@
-<h1>Lista de estados</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", estados_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_estado_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Estados</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.estado.nome", :default => t("activerecord.labels.nome", :default => "Nome")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @estados.each do |estado| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= estado.id %>
+          </td>
+                    <td>
+            <%= link_to estado.nome, estado_path(estado) %>
+          </td>
+                    <td>
+            <%= l(estado.created_at) %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", estado_path(estado) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_estado_path(estado) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", estado_path(estado), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Uf</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @estados.each do |estado| %>
-  <tr>
-    <td><%= estado.nome %></td>
-    <td><%= estado.uf %></td>
-    <td><%= link_to 'Mostrar', estado %></td>
-    <td><%= link_to 'Editar', edit_estado_path(estado) %></td>
-    <td><%= link_to 'Excluir', estado, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'Novo Estado', new_estado_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

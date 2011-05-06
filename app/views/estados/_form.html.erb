@@ -1,7 +1,15 @@
-<%= simple_form_for(@estado) do |f| %>
-  <%= f.input :nome %>
-  <%= f.input :uf %>
-  <div class="actions">
-    <%= f.button :submit, "Gravar" %>
+<%= simple_form_for(@estado, :html => { :class => :form }) do |f| %>
+  <div class="fields">
+		
+        <%= f.input :nome, :wrapper_html => { :class => "group" }, :hint => 'Ex:' %>
+    
+        <%= f.input :uf, :wrapper_html => { :class => "group" }, :hint => 'Ex:' %>
+      </div>
+	<div class="group navform wat-cf">
+		<button class="button" type="submit">
+		  <%= image_tag("web-app-theme/icons/tick.png", :alt => t("web-app-theme.save", :default => "Save")) %> <%= t("web-app-theme.save", :default => "Save") %>
+		</button>
+		<span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+		<%= link_to t("web-app-theme.cancel", :default => "Cancel"), estados_path, :class => "text_button_padding link_button" %>
   </div>
 <% end %>
