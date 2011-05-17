@@ -2,11 +2,12 @@ class LinhasController < ApplicationController
   # GET /linhas
   # GET /linhas.xml
   def index
-    @linhas = params && params[:nome] ? Linha.send(:pesquisar, params[:nome]) : Linha.all
+    @linhas = (params && params[:nome] ? Linha.pesquisar(params[:nome]) : Linha.all).paginate(:page => params[:page] || 1, :per_page => 50)
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @linhas }
+      format.json { render :json => @linhas.to_json }
     end
   end
 

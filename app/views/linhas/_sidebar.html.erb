@@ -1,6 +1,11 @@
 <div class="block notice">
-  <h3></h3>
   <div class="content">
-    <p></p>
+   <%= form_tag linhas_path, :method => "get", :class => "form" do %>
+    <div class="input">
+      <%= label_tag :nome, "Pesquisar:" %>
+      <%= text_field_tag :nome %>
+    </div>
+    <%= submit_tag "Ok" %>
+   <% end %>
   </div>
 </div>

@@ -3,8 +3,6 @@
     <%= f.input :numero, :wrapper_html => { :class => "group" }, :hint => 'Ex: 1234-A' %>
     <%= f.input :nome, :wrapper_html => { :class => "group" }, :hint => 'Ex: Rodoviária Circular - R1' %>
     <%= f.association :empresa, :label_method => :nome, :wrapper_html => { :class => "group" } %>
-    <%= f.association :bairro_partida, :label_method => :nome, :wrapper_html => { :class => "group" } %>
-    <%= f.association :bairro_chegada, :label_method => :nome, :wrapper_html => { :class => "group" } %>
   </div>
 	<div class="group navform wat-cf">
 		<button class="button" type="submit">

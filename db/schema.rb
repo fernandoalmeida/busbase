@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110506045632) do
+ActiveRecord::Schema.define(:version => 20110517153401) do
 
   create_table "bairros", :force => true do |t|
     t.string   "nome",       :null => false
@@ -40,11 +40,9 @@ ActiveRecord::Schema.define(:version => 20110506045632) do
   end
 
   create_table "linhas", :force => true do |t|
-    t.string   "numero",            :null => false
-    t.string   "nome",              :null => false
+    t.string   "numero",     :null => false
+    t.string   "nome",       :null => false
     t.integer  "empresa_id"
-    t.integer  "bairro_partida_id"
-    t.integer  "bairro_chegada_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
