@@ -10,8 +10,8 @@ class Linha < ActiveRecord::Base
 
   def self.pesquisar bairro
     return nil unless bairro
-    linhas = Linha.where(:nome => bairro)
-    linhas = parse_salvador(bairro) unless linhas.count > 0
+    linhas = Linha.where("nome ILIKE ?",bairro.insert(0,"%").insert(-1,"%"))
+    linhas = parse_salvador(bairro.gsub("%","")) unless linhas.count > 0
     linhas
   end
 
