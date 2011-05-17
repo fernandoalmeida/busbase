@@ -13,6 +13,7 @@ group :development, :test do
 	gem "web-app-theme"
 	gem 'cucumber-rails'
 	gem 'rspec-rails'
+	gem 'database_cleaner'
 	gem 'webrat'
   gem 'autotest-rails'
   gem 'test_notifier'

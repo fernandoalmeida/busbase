@@ -2,7 +2,7 @@ class LinhasController < ApplicationController
   # GET /linhas
   # GET /linhas.xml
   def index
-    @linhas = Linha.all
+    @linhas = params && params[:nome] ? Linha.send(:pesquisar, params[:nome]) : Linha.all
 
     respond_to do |format|
       format.html # index.html.erb

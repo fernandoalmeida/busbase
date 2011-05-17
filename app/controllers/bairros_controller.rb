@@ -13,15 +13,8 @@ class BairrosController < ApplicationController
   # GET /bairros/1
   # GET /bairros/1.xml
   def show
-  
-  	if (params[:id] =~ /^\d+$/).nil?
-  		@bairro = Bairro.where(:nome => params[:id]).first
-			@doc 		= Nokogiri::HTML(open("http://www.stp.salvador.ba.gov.br/transporte/categorias/Onibus/consultar_linha.php?linha=#{params[:id]}"))
-		else
-			@bairro = Bairro.find(params[:id])
-			@doc 		= nil
-		end
-
+		@bairro = Bairro.find(params[:id])
+		
 	  respond_to do |format|
 	    format.html # show.html.erb
 	    format.xml  { render :xml => @bairro }

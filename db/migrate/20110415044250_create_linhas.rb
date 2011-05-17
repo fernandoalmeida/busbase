@@ -3,9 +3,9 @@ class CreateLinhas < ActiveRecord::Migration
     create_table :linhas do |t|
       t.string :codigo, :null => false
       t.string :nome, :null => false
-      t.references :empresa, :null => false
-      t.references :bairro_partida, :null => false
-      t.references :bairro_chegada, :null => false
+      t.references :empresa
+      t.references :bairro_partida
+      t.references :bairro_chegada
 
       t.timestamps
     end

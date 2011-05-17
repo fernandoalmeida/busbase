@@ -30,6 +30,28 @@
         </tr>          
         <% end -%>
       </table>
+
+
+      <% if @doc %>
+				<table>
+					<thead>
+						<tr>
+							<th>Código</th>
+							<th>Nome</th>
+						</tr>
+					</thead>
+					<tbody>
+				<% @doc.css('.fundocadastrologin').each do |linha| %>
+					<tr>
+						<td><%= linha.at('td div').text %></td>
+						<td><%= linha.at('td[@width="238"]').text %></td>
+					</tr>
+				<% end %>
+					<tbody>
+				</table>
+			<% end %>
+
+
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
