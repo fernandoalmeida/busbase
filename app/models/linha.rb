@@ -24,7 +24,7 @@ class Linha < ActiveRecord::Base
   # end
 
   def self.parse_salvador linha
-    return nil unless linha
+    return [] unless linha
     html = Nokogiri::HTML(open("http://www.stp.salvador.ba.gov.br/transporte/categorias/Onibus/consultar_linha.php?linha=#{linha}"))
     linhas = []
     cidade = Cidade.where(:nome => "Salvador").first

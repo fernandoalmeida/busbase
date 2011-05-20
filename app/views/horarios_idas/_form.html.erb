@@ -1,0 +1,14 @@
+<%= simple_form_for((@horarios_ida.new_record? ? new_linha_horarios_ida_path : edit_linha_horarios_ida_path(@horarios_ida)), :html => { :class => :form }) do |f| %>
+<div class="fields"> 
+  <%= f.input :linha_id, :collection => Linha.all, :label_method => :nome, :wrapper_html => { :class => "group" } %>
+  <%= f.input :dia_da_semana, :collection => [["Dia útil","u"],["Sábado","s"],["Domingo","d"]], :wrapper_html => { :class => "group" } %>
+  <%= f.input :hora, :wrapper_html => { :class => "group" } %>
+</div>
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => t("web-app-theme.save", :default => "Save")) %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>
+  <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+  <%= link_to t("web-app-theme.cancel", :default => "Cancel"), linha_horarios_idas_path, :class => "text_button_padding link_button" %>
+</div>
+<% end %>

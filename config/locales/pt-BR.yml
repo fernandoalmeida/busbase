@@ -23,6 +23,7 @@ pt-BR:
       default: "%d/%m/%Y %H:%M"
       short: "%d/%m, %H:%M h"
       long: "%A, %d de %B de %Y, %H:%M h"
+      time: "%H:%M"
     am: ''
     pm: ''
  

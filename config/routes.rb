@@ -7,7 +7,9 @@ ParadaDeOnibusWeb::Application.routes.draw do
     get "/logout" => "devise/sessions#destroy"
   end
 
-  resources :linhas
+  resources :linhas do
+    resources :horarios_idas
+  end
 
   resources :empresas
 
