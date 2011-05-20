@@ -7,6 +7,7 @@ class HorariosController < ApplicationController
     respond_to do |format|
       format.html 
       format.xml  { render :xml => @horarios }
+      format.json { render :json => @horarios.to_json }
     end
   end
 
