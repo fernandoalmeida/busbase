@@ -8,7 +8,7 @@ ParadaDeOnibusWeb::Application.routes.draw do
   end
 
   resources :linhas do
-    resources :horarios_idas
+    resources :horarios
   end
 
   resources :empresas

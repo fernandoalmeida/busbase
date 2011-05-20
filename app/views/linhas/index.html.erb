@@ -23,6 +23,7 @@
           <td><%= link_to linha.nome, linha_path(linha) %></td>
           <td><%= l(linha.created_at) %></td>
           <td class="last">
+            <%= link_to "Horários", linha_horarios_path(linha) %> |
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", linha_path(linha) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_linha_path(linha) %> |
             <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", linha_path(linha), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>

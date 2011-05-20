@@ -7,4 +7,3 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 ba       = Estado.create(:nome => "Bahia", :uf => "BA")
 salvador = Cidade.create(:nome => "Salvador", :estado_id => ba.id)
-

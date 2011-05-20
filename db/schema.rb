@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110518053955) do
+ActiveRecord::Schema.define(:version => 20110520133328) do
 
   create_table "bairros", :force => true do |t|
     t.string   "nome",       :null => false
@@ -39,10 +39,11 @@ ActiveRecord::Schema.define(:version => 20110518053955) do
     t.datetime "updated_at"
   end
 
-  create_table "horarios_idas", :force => true do |t|
-    t.integer "linha_id",      :null => false
-    t.string  "dia_da_semana", :null => false
-    t.time    "hora",          :null => false
+  create_table "horarios", :force => true do |t|
+    t.integer "linha_id",                       :null => false
+    t.string  "dia_da_semana",                  :null => false
+    t.time    "hora",                           :null => false
+    t.string  "sentido",       :default => "i", :null => false
   end
 
   create_table "linhas", :force => true do |t|
