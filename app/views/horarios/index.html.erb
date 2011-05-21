@@ -8,30 +8,58 @@
   <div class="content">          
     <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Horarios</h2>
     <div class="inner">
-      <table class="table">
-        <tr>             
-          <th class="first">Número</th>
-          <th><%= t("activerecord.attributes.horario.linha_id", :default => t("activerecord.labels.linha_id", :default => "Linha")) %></th>
-          <th>Hora</th>
-          <th>Dia da Semana</th>
-          <th>Sentido</th>
-          <th class="last">&nbsp;</th>
-        </tr>
-        <% @horarios.each do |horario| -%>
-        <tr class="<%= cycle("odd", "even") %>">
-          <td><%= horario.linha.numero %></td>
-          <td><%= link_to horario.linha.nome, linha_horario_path(horario.linha, horario) %></td>
-          <td><%= l(horario.hora, :format => :time) %></td>
-          <td><%= horario.dia_da_semana %></td>
-          <td><%= horario.sentido %></td>
-          <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", linha_horario_path(horario.linha, horario) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_linha_horario_path(horario.linha, horario) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", linha_horario_path(horario.linha, horario), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-          </td>
-        </tr>          
-        <% end -%>
-      </table>
+      <div class="box horarios">
+        <h3>Ida</h3>
+        <h4>Dia útil</h4>
+        <ul>
+          <% @horarios[:i][:u].each do |h| %>
+          <li><%= l(h.hora, :format => :time) %></li>
+          <% end %>
+        </ul>
+        <h4>Sábado</h4>
+        <ul>
+          <% @horarios[:i][:s].each do |h| %>
+          <li><%= l(h.hora, :format => :time) %></li>
+          <% end %>
+        </ul>
+        <h4>Domingo</h4>
+        <ul>
+          <% @horarios[:i][:d].each do |h| %>
+          <li><%= l(h.hora, :format => :time) %></li>
+          <% end %>
+        </ul>     
+      </div>
+      <div class="box horarios">
+        <h3>Volta</h3>
+        <% if @horarios[:v][:u].size + @horarios[:v][:d].size + @horarios[:v][:d].size > 0  %>
+          <% if @horarios[:v][:u].size > 0 %>
+          <h4>Dia útil</h4>
+          <ul>
+            <% @horarios[:v][:u].each do |h| %>
+            <li><%= l(h.hora, :format => :time) %></li>
+            <% end %>
+          </ul>
+          <% end %>
+          <% if @horarios[:v][:s].size %>
+          <h4>Sábado</h4>
+          <ul>
+            <% @horarios[:v][:s].each do |h| %>
+            <li><%= l(h.hora, :format => :time) %></li>
+            <% end %>
+          </ul>
+          <% end %>
+          <% if @horarios[:v][:d].size %>
+          <h4>Domingo</h4>
+          <ul>
+            <% @horarios[:v][:d].each do |h| %>
+            <li><%= l(h.hora, :format => :time) %></li>
+            <% end %>
+          </ul>
+          <% end %>
+        <% else %>
+          <p>Não há horários de volta para esta linha<p>
+        <% end %>
+      </div>
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>

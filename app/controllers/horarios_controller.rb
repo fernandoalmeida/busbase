@@ -2,7 +2,15 @@ class HorariosController < ApplicationController
   # GET /horarios
   # GET /horarios.xml
   def index
-    @horarios = Horario.pesquisar(params[:linha_id])
+
+    @horarios = {
+      :i => {:u => [], :s => [], :d => []},
+      :v => {:u => [], :s => [], :d => []}
+    }
+
+    Horario.pesquisar(params[:linha_id]).each do |h|
+      @horarios[h.sentido.to_sym][h.dia_da_semana.to_sym] << h
+    end
 
     respond_to do |format|
       format.html 

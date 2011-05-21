@@ -1,87 +1,15 @@
-/* Links */
-body a, body a:visited {
-	color: #95bf84;
-	text-decoration: none;
-	outline: none;
-	margin: .4em;
-	padding: .1em .2em;
+.horarios li {
+   display: inline;
+   padding: 3px 5px;
+   list-style: none;
 }
 
-body a img { border: 0 none; }
-
-body a:hover {
-	color: #fff;
-	background-color: #95bf84;
-	text-decoration: underline;
+.horarios h3 {
+   font-weight: bold;
 }
 
-/* Forms */
-label {
-	display: inline-block;
-	width: 10em;
-	text-align: right;
-	padding-right: 5px;
-}
-
-div.input {
-	margin-bottom: .3em;
-}
-
-.input input,
-.input select
-{
-	width: 15em;
-	border: 1px solid #ccc;
-	padding: .2em;
-}
-
-/* Tables */
-table {
-    border-spacing: 0;
-    border-left: 1px solid #959595;
-		width: 100%;
-		padding: 0;
-		margin: 0;
-		font-size: 1.1em;
-		clear:both;
-}
-
-th {
-	border-color:#959595 #959595 #959595 #FFFFFF;
-	border-style:solid;
-	border-width:1px;
-	color:#fff;
-	letter-spacing:0px;
-	padding:6px 4px 2px 4px;
-	text-align:left;
-	text-transform:uppercase;
-	white-space: nowrap;
-	background-color: #95bf84;
-}
-
-td {
-	border-right: 1px solid #959595;
-	border-bottom: 1px solid #959595;
-	background: #fff;
-	padding: 1px 4px;
-	color: #484848;
-}
-
-/* Messages */
-.message {
-	margin: 0 10px 20px 0;
-}
-
-.message p {
-	padding: 10px 10px 10px 40px;
-}
-
-.error {
-	background: #FBE3E4 url(../images/highlight_line.gif) repeat-x scroll 0 0;
-	border-color: 1px solid #FBC7C9;
-	color: #D64045;
-}
-
-.error p {
-	background: transparent url(../images/24_x_false.png) no-repeat scroll 15px 17px;
+.box {
+   border: 1px solid #e5e5e5;
+   padding: 5px;
+   margin: 5px 0;
 }
