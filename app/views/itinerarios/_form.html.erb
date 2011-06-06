@@ -1,0 +1,15 @@
+<%= simple_form_for((@itinerario.new_record? ? linha_itinerarios_path : linha_itinerario_path(@itinerario)), :html => { :class => :form }) do |f| %>
+  <div class="fields">  
+    <%= f.input :linha_id, :wrapper_html => { :class => "group" }, :hint => 'Ex:' %>
+    <%= f.input :endereco_id, :wrapper_html => { :class => "group" }, :hint => 'Ex:' %>
+    <%= f.input :sentido, :wrapper_html => { :class => "group" }, :hint => 'Ex:' %>
+    <%= f.input :position, :wrapper_html => { :class => "group" }, :hint => 'Ex:' %>    
+  </div>
+  <div class="group navform wat-cf">
+    <button class="button" type="submit">
+      <%= image_tag("web-app-theme/icons/tick.png", :alt => t("web-app-theme.save", :default => "Save")) %> <%= t("web-app-theme.save", :default => "Save") %>
+    </button>
+    <span class="text_button_padding"><%= t("web-app-theme.or", :default => "or") %></span>
+    <%= link_to t("web-app-theme.cancel", :default => "Cancel"), linha_itinerarios_path, :class => "text_button_padding link_button" %>
+  </div>
+<% end %>

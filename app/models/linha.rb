@@ -2,8 +2,8 @@
 class Linha < ActiveRecord::Base
 
   belongs_to :empresa
-  belongs_to :bairro_partida, :class_name => "Bairro"
-  belongs_to :bairro_chegada, :class_name => "Bairro"
+  has_many :horarios
+  has_many :itinerarios
 
   validates :numero, :presence => true
   validates :nome, :presence => true

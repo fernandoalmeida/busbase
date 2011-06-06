@@ -1,0 +1,58 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", linha_itinerarios_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_linha_itinerario_path %></li>
+    </ul>
+  </div>           
+  <div class="content">          
+    <h2 class="title">Itinerario</h2>
+    <div class="inner">
+      <h3>Ida</h3>
+      <table class="table">
+        <tr>             
+          <th>Linha</th>
+          <th>Ordem</th>
+          <th>Endereço</th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @itinerarios[:i].each do |itinerario| -%>
+	  <% if itinerario %>
+            <tr class="<%= cycle("odd", "even") %>">
+              <td><%= itinerario.linha.numero  %></td>
+              <td><%= itinerario.position  %></td>
+              <td><%= itinerario.endereco.endereco %></td>
+              <td class="last"></td>
+	    </tr>
+          <% end %>
+        <% end -%>
+      </table>
+      <h3>Volta</h3>
+      <table class="table">
+        <tr>             
+          <th>Linha</th>
+          <th>Ordem</th>
+          <th>Endereço</th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @itinerarios[:v].each do |itinerario| -%>
+	  <% if itinerario %>
+            <tr class="<%= cycle("odd", "even") %>">
+              <td><%= itinerario.linha.numero  %></td>
+              <td><%= itinerario.position  %></td>
+              <td><%= itinerario.endereco.endereco %></td>
+              <td class="last"></td>
+	    </tr>
+          <% end %>
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
