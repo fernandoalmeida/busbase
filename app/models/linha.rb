@@ -6,13 +6,13 @@ class Linha < ActiveRecord::Base
   has_many :itinerarios
 
   validates :numero, :presence => true
-  validates :nome, :presence => true
+  validates :nome, :presence => true, :uniqueness => true
 
   def self.pesquisar bairro
     return nil unless bairro
-    linhas = Linha.where("nome ILIKE ?",bairro.insert(0,"%").insert(-1,"%"))
-    linhas = parse_salvador(URI.escape(bairro.gsub("%",""))) unless linhas.count > 0
-    linhas
+    ja_pesquisado = Busca.where("texto = ?", bairro).count > 0
+    parse_salvador(URI.escape(bairro.gsub("%",""))) unless ja_pesquisado
+    Linha.where("nome ILIKE ?",bairro.insert(0,"%").insert(-1,"%"))
   end
 
   # TODO: implementar outras cidades
