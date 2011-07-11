@@ -6,7 +6,7 @@ class Itinerario < ActiveRecord::Base
   scope :ida, where(:sentido => "i")
   scope :volta, where(:sentido => "v")
 
-  default_scope order("position ASC")
+  default_scope order("sentido, position ASC")
 
   def self.pesquisar(linha_id)
     return [] unless linha_id

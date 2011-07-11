@@ -1,36 +1,32 @@
 class LinhasController < ApplicationController
+
+  respond_to :html
+  respond_to :xml, :json, :only => :index
+
   # GET /linhas
   # GET /linhas.xml
+  # GET /linhas.json
   def index
-    @linhas = (params && params[:nome] ? Linha.pesquisar(params[:nome]) : Linha.all).paginate(:page => params[:page] || 1, :per_page => 50)
-
+    @linhas = (params && params[:nome] ? Linha.pesquisar(params[:nome]) : Linha.all)
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @linhas }
-      format.json { render :json => @linhas.to_json }
+      format.html { @linhas = @linhas.paginate(:page => params[:page] || 1, :per_page => 50)}
+      format.any(:xml, :json) do
+        formato = request.format.to_sym
+        saida   = { :methods => [:proximo_horario], :only => [:id, :nome, :numero], :include => :empresa }
+        render formato => @linhas.send("to_#{formato}", saida)
+      end
     end
   end
 
   # GET /linhas/1
-  # GET /linhas/1.xml
   def show
     @linha = Linha.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @linha }
-    end
+    respond_with @linha
   end
 
   # GET /linhas/new
-  # GET /linhas/new.xml
   def new
     @linha = Linha.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @linha }
-    end
   end
 
   # GET /linhas/1/edit
@@ -39,46 +35,25 @@ class LinhasController < ApplicationController
   end
 
   # POST /linhas
-  # POST /linhas.xml
   def create
     @linha = Linha.new(params[:linha])
-
-    respond_to do |format|
-      if @linha.save
-        format.html { redirect_to(@linha, :notice => 'Linha was successfully created.') }
-        format.xml  { render :xml => @linha, :status => :created, :location => @linha }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @linha.errors, :status => :unprocessable_entity }
-      end
+    respond_with(@linha) do |format|
+      format.html { @linha.save ? redirect_to(linhas_path, :notice => 'Linha cadastrada com sucesso.') : render(:action => "new") }
     end
   end
 
   # PUT /linhas/1
-  # PUT /linhas/1.xml
   def update
     @linha = Linha.find(params[:id])
-
-    respond_to do |format|
-      if @linha.update_attributes(params[:linha])
-        format.html { redirect_to(@linha, :notice => 'Linha was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @linha.errors, :status => :unprocessable_entity }
-      end
+    respond_with(@linha) do |format|
+      format.html { @linha.update_attributes(params[:linha]) ? redirect_to(linhas_path, :notice => 'Linha atualizada com sucesso.') : render(:action => "edit") }
     end
   end
 
   # DELETE /linhas/1
-  # DELETE /linhas/1.xml
   def destroy
     @linha = Linha.find(params[:id])
     @linha.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(linhas_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to(linhas_url)
   end
 end

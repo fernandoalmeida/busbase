@@ -1,12 +1,25 @@
 # -*- coding: utf-8 -*-
 class Linha < ActiveRecord::Base
 
+  default_scope :order => "nome ASC"
+
   belongs_to :empresa
   has_many :horarios
   has_many :itinerarios
 
   validates :numero, :presence => true
   validates :nome, :presence => true, :uniqueness => true
+
+  def proximo_horario
+    agora         = Time.now
+    dia_da_semana = [1..5].include?(agora.wday) ? "u" : agora.wday == 6 ? "s" : "d"
+    horarios      = Horario.where(:linha_id => id).where(:dia_da_semana => dia_da_semana).where("hora > ?", agora).order("hora ASC").partition {|h| h.sentido == "i"}
+    ida, volta    = horarios[0].first, volta = horarios[1].first
+    {
+      :ida => (ida ? "#{ida.hora.hour}:#{ida.hora.min}" : nil),
+      :volta => (volta ? "#{volta.hora.hour}:#{volta.hora.min}" : nil)
+    }
+  end
 
   def self.pesquisar bairro
     return nil unless bairro
